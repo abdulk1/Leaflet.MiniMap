@@ -12,23 +12,23 @@ export class MiniMap extends Control {
 }
 
 export interface MiniMapOptions {
-  position: 'bottomright' | 'topleft' | 'bottomleft' | 'topright'; // default: 'bottomright'
-  toggleDisplay: boolean; // default: false
-  zoomLevelOffset: number; // default: -5
-  zoomLevelFixed: boolean; // default: false
-  centerFixed: boolean; // default: false
-  zoomAnimation: boolean; // default: false
-  autoToggleDisplay: boolean; // default: false
-  minimized: boolean; // default: false
-  width: number; // default: 150
-  height: number; // default: 150
-  collapsedWidth: number; // default: 19
-  collapsedHeight: number; // default: 19
-  aimingRectOptions: AimingRectOptions;
-  shadowRectOptions: ShadowRectOptions;
-  hideText: 'Hide MiniMap';
-  showText: 'Show MiniMap';
-  mapOptions: MapOptions; // Allows definition / override of Leaflet map options.
+  position?: 'bottomright' | 'topleft' | 'bottomleft' | 'topright'; // default: 'bottomright'
+  toggleDisplay?: boolean; // default: false
+  zoomLevelOffset?: number; // default: -5
+  zoomLevelFixed?: boolean; // default: false
+  centerFixed?: boolean; // default: false
+  zoomAnimation?: boolean; // default: false
+  autoToggleDisplay?: boolean; // default: false
+  minimized?: boolean; // default: false
+  width?: number; // default: 150
+  height?: number; // default: 150
+  collapsedWidth?: number; // default: 19
+  collapsedHeight?: number; // default: 19
+  aimingRectOptions?: AimingRectOptions;
+  shadowRectOptions?: ShadowRectOptions;
+  hideText?: 'Hide MiniMap';
+  showText?: 'Show MiniMap';
+  mapOptions?: MapOptions; // Allows definition / override of Leaflet map options.
 }
 
 interface AimingRectOptions {

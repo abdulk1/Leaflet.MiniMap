@@ -1,4 +1,4 @@
-L.Control.MiniMap = L.Control.extend({
+export var MiniMap = (L.Control.MiniMap = L.Control.extend({
   includes: L.Evented ? L.Evented.prototype : L.Mixin.Events,
 
   options: {
@@ -363,7 +363,7 @@ L.Control.MiniMap = L.Control.extend({
     this.invalidateSize();
     this.fire('toggle', data);
   }
-});
+}));
 
 L.Map.mergeOptions({
   miniMapControl: false
