@@ -28,15 +28,15 @@ new MiniMap(layer, options).addTo(map);
 
 `changeLayer`: Swaps out the minimap layer for the one provided.
 
-`minimize`: Swaps out the minimap layer for the one provided.
+`minimize`: Closes the minimap control.
 
-`restore`: Swaps out the minimap layer for the one provided.
+`restore`: Opens the minimap control.
 
-`isMiniMapOpen`: Swaps out the minimap layer for the one provided.
+`isMiniMapOpen`: Returns a boolean informing if the minimap control is open.
 
-`disableInteractivity`: Swaps out the minimap layer for the one provided.
+`disableInteractivity`: Disables drag and zoom ability on minimap control.
 
-`invalidateSize`: Swaps out the minimap layer for the one provided.
+`invalidateSize`: Checks if the map container size changed and updates the map if so.
 
 ## Available Options
 
