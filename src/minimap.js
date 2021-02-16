@@ -68,9 +68,6 @@ export var MiniMap = (L.Control.MiniMap = L.Control.extend({
     this._mainMapMoving = false;
     this._miniMapMoving = false;
 
-    this._onMainMapMovedThrottle = L.Util.throttle(this._onMainMapMoved.bind(this), 1000);
-    this._onMiniMapMovedThrottle = L.Util.throttle(this._onMiniMapMoved.bind(this), 1000);
-
     // Keep a record of this to prevent auto toggling when the user explicitly doesn't want it.
     this._userToggledDisplay = false;
     this._minimized = false;
@@ -84,11 +81,11 @@ export var MiniMap = (L.Control.MiniMap = L.Control.extend({
         this._aimingRect = L.rectangle(this._mainMap.getBounds(), this.options.aimingRectOptions).addTo(this._miniMap);
         this._shadowRect = L.rectangle(this._mainMap.getBounds(), this.options.shadowRectOptions).addTo(this._miniMap);
         this._mainMap.on('move', this._onMainMapMoving, this);
-        this._mainMap.on('moveend', this._onMainMapMovedThrottle, this);
+        this._mainMap.on('moveend', this._onMainMapMoved, this);
         this._mainMap.on('resize', this._onMainMapResize, this);
         this._miniMap.on('movestart', this._onMiniMapMoveStarted, this);
         this._miniMap.on('move', this._onMiniMapMoving, this);
-        this._miniMap.on('moveend', this._onMiniMapMovedThrottle, this);
+        this._miniMap.on('moveend', this._onMiniMapMoved, this);
       }, this)
     );
 
@@ -106,12 +103,12 @@ export var MiniMap = (L.Control.MiniMap = L.Control.extend({
 
   onRemove: function (map) {
     this._mainMap.off('move', this._onMainMapMoving, this);
-    this._mainMap.off('moveend', this._onMainMapMovedThrottle, this);
+    this._mainMap.off('moveend', this._onMainMapMoved, this);
     this._mainMap.off('resize', this._onMainMapResize, this);
 
     this._miniMap.off('movestart', this._onMiniMapMoveStarted, this);
     this._miniMap.off('move', this._onMiniMapMoving, this);
-    this._miniMap.off('moveend', this._onMiniMapMovedThrottle, this);
+    this._miniMap.off('moveend', this._onMiniMapMoved, this);
 
     this._miniMap.removeLayer(this._layer);
   },
